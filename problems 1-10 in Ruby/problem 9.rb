@@ -8,35 +8,25 @@
 
 class PythagoreanTriplet
 
-
-
-def values
-  @a, @b, @c = 0, 0, 0
-  sum = 1000
-  while @a < sum
-    # while @b < sum
-    #   while @c < sum
-        if (@a**2 + @b**2 == @c**2) && (@a + @b + @c == 1000)
-          return @a, @b, @c
-
-        end 
- @c += 1
-        
-      # end
-  @b += 1    
-     
-    # end 
-     puts "a #{@a}, b #{@b}, c #{@c}"
-    @a += 1
-    
-   
+  def initialize
+    triplets
   end 
+
+  def triplets 
+    for c in 1..1000
+      for b in 1..c
+        for a in 1..b
+          if a**2 + b**2 == c**2 && a + b + c == 1000
+            return a * b * c
+          end
+        end
+      end
+    end
+  end 
+
 end 
 
+print PythagoreanTriplet.new.triplets
 
-   def product
-    @a * @b * @c
-   end  
-end 
-
-print PythagoreanTriplet.new.values
+# triplet => (200,375,425)
+# product => 31875000
